@@ -1,2 +1,44 @@
 Autoscan is a script that assists in the importing of Sonarr, Radarr,
             and Lidarr downloads into Plex Media Server.
+            
+            THIS APPLICATION NEEDS MANUAL CONFIGURATION
+           
+Prerequisites:
+-Plex token
+ 
+Get plex token by using this command: 
+
+sudo cat "/opt/appdata/plex/database/Library/Application Support/Plex Media Server/Preferences.xml" | sed -e 's;^.* PlexOnlineToken=";;' | sed -e 's;".*$;;' | tail -1
+
+-Write it down!
+ 
+Configuration:
+sudo nano /opt/appdata/autoscan/config.yml
+
+Here you will have to check your triggers, and your path of media. You can also edit username and pass if you like. If you don't use 4K Radarr/sonarr you can delete those entries. 
+When you have done that, you must paste your plex token in at the bottom of the file. CTRL+X to save and exit.
+
+Heres how to connect with sonarr/radarr:
+
+Settings->Connect->Webhook
+
+Notification triggers: 
+Import
+Upgrade 
+Rename
+
+URL for radarr/sonarr
+http://autoscan:3030/triggers/radarr
+http://autoscan:3030/triggers/sonarr
+
+Method:
+Put
+
+Pass and Username if set.
+
+Check the portainer logs to troubleshoot
+
+URL for manual triggers:
+
+https://autoscan.domain/triggers/manual
+

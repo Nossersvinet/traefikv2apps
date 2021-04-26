@@ -9,7 +9,10 @@ will throw an XML error in the current version.
 Settings to edit in xteve: 
 -Playlist (add yours)
 -EPG source (unless you use the one in Plex)
--Settings -> Buffer -> Xteve -> Buffer size 8MB
+-Settings:
+Buffer : None (connect directly)
+Buffer Size : 8mb
+<<Configured for .ts output from provider(s)>>
 
 When setting it up in plex: 
 -Add xteve:34400 as tuner
@@ -18,7 +21,10 @@ the link you set in Plex must be
 
 http://xteve:34400/xmltv/xteve.xml
 
+When channels are loaded in plex use this command
+sudo docker restart plex
+
 Protip:
 Manage,modulate and shorten your
-        m3u linkon www.m3u4u.com -
+        m3u link on www.m3u4u.com -
 They also have an excellent EPG & Playlist editor
